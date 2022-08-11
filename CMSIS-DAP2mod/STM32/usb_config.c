@@ -119,7 +119,7 @@
 #define USBD_STRDESC_MAN            L"ARM"
 #define USBD_STRDESC_PROD           L"DAPLink CMSIS-DAP"
 #define USBD_STRDESC_SER_ENABLE     1
-#define USBD_STRDESC_SER            L"12345678ABCD"
+#define USBD_STRDESC_SER            L"123456789012"
 
 //   <e0> Class Support
 //     <i> Enables USB Device Class specific Requests

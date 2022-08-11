@@ -44,6 +44,7 @@ typedef const struct
 
 #if !defined ( BOARD_V1      )	\
  && !defined ( BOARD_V2      )	\
+ && !defined ( BOARD_V1M    )	\
  && !defined ( STLINK_V20    )	\
  && !defined ( STLINK_V21    )	\
  && !defined ( BOARD_STM32RF )
@@ -111,6 +112,7 @@ Provides definitions about:
 /// Indicate that JTAG communication mode is available at the Debug Port.
 /// This information is returned by the command \ref DAP_Info as part of <b>Capabilities</b>.
 #if defined ( BOARD_STM32RF )	\
+ || defined ( BOARD_V1M	)   \
  || defined ( STLINK_V20 )		\
  || defined ( STLINK_V21 )
 	#define DAP_JTAG			0				///< JTAG Mode: 1 = available, 0 = not available.
@@ -140,7 +142,7 @@ Provides definitions about:
 /// This configuration settings is used to optimized the communication performance with the
 /// debugger and depends on the USB peripheral. For devices with limited RAM or USB buffer the
 /// setting can be reduced (valid range is 1 .. 255). Change setting to 4 for High-Speed USB.
-#define DAP_PACKET_COUNT		64				///< Buffers: 64 = Full-Speed, 4 = High-Speed.
+#define DAP_PACKET_COUNT		42				///< Buffers: 64 = Full-Speed, 4 = High-Speed.
 
 
 /// Debug Unit is connected to fixed Target Device.
@@ -172,6 +174,7 @@ typedef enum Pin_e {
 
 #if   defined ( BOARD_V1 )	\
  ||   defined ( BOARD_V2 )	\
+ ||   defined ( BOARD_V1M )	\
  ||   defined ( BOARD_STM32RF )
 
 	#define USART_CLOCK(state)		RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, state)
@@ -219,7 +222,8 @@ typedef enum Pin_e {
 	#define PIN_USB_CONNECT_ON()	PIN_USB_CONNECT_PORT->BSRR = PIN_USB_CONNECT
 	#define PIN_USB_CONNECT_OFF()	PIN_USB_CONNECT_PORT->BRR  = PIN_USB_CONNECT
 
-#elif defined ( STLINK_V20 )
+#elif defined ( STLINK_V20 ) \
+  ||  defined ( BOARD_V1M ) 
 
 	#define PIN_USB_CONNECT_ON()
 	#define PIN_USB_CONNECT_OFF()
@@ -247,7 +251,8 @@ typedef enum Pin_e {
 
 #endif
 
-#if   defined ( BOARD_V1 )
+#if   defined ( BOARD_V1 ) \
+  ||  defined ( BOARD_V1M )
 
 	// SWDIO/TMS Pin
 	#define PIN_SWDIO_TMS_PORT      GPIOA
@@ -332,7 +337,7 @@ typedef enum Pin_e {
 
 // Debug Unit LEDs
 
-#if defined ( BOARD_V1 ) || defined ( BOARD_V2 )
+#if defined ( BOARD_V1 ) || defined ( BOARD_V2 )  || defined ( BOARD_V1M )
 
 	#define LED_CONNECTED_RCC		RCC_APB2ENR_IOPBEN
 

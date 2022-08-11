@@ -98,9 +98,10 @@ int main(void)
 	Delay_ms(1);
 
 	// USB Device Initialization and connect
+	RCC_USBCLKConfig(RCC_USBCLKSource_PLLCLK_1Div5);
 	usbd_init();
 	usbd_connect(__TRUE);
-
+		
 	led_count = 0;
 	while (!usbd_configured())	// Wait for USB Device to configure
 	{

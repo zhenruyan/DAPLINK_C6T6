@@ -1022,7 +1022,7 @@ static void SetSysClockTo72(void)
 		}
 		else
 		{
-			RCC->CFGR |= (RCC_CFGR_PLLSRC_HSE | RCC_CFGR_PLLMULL6 );
+			RCC->CFGR |= (RCC_CFGR_PLLSRC_HSE | RCC_CFGR_PLLMULL9 );
 		}
 	#endif /* STM32F10X_CL */
 

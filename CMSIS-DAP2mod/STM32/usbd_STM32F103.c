@@ -148,12 +148,14 @@ void USBD_Reset (void)
 			| ((USBD_RTX_DevTask	!= 0) ? CNTR_ERRM	: 0)
 			| ((USBD_RTX_DevTask	!= 0) ? CNTR_PMAOVRM : 0)
 			| ((USBD_RTX_DevTask	!= 0) ? CNTR_SOFM	: 0)
-			| ((USBD_RTX_DevTask	!= 0) ? CNTR_ESOFM	: 0);
+//			| ((USBD_RTX_DevTask	!= 0) ? CNTR_ESOFM	: 0)
+	;
 #else
 			| ((USBD_P_Error_Event != 0) ? CNTR_ERRM	: 0)
 			| ((USBD_P_Error_Event != 0) ? CNTR_PMAOVRM : 0)
 			| ((USBD_P_SOF_Event	!= 0) ? CNTR_SOFM	: 0)
-			| ((USBD_P_SOF_Event	!= 0) ? CNTR_ESOFM	: 0);
+//			| ((USBD_P_SOF_Event	!= 0) ? CNTR_ESOFM	: 0)
+	    ;
 #endif
 
 	FreeBufAddr = EP_BUF_ADDR;
@@ -627,4 +629,6 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
 #endif
 		}
 	}
+	
+	ISTR = 0;
 }

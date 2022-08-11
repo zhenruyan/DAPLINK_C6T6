@@ -1,0 +1,4 @@
+Use a serial tool like "putty" to connect OCD telnet port, and use file-logging function.
+Type "mdb 0x08000000 0x8000" to dump firmware bytes in ROM.
+Use a text editor to clean unrelated contents in log file.
+Use "mdb-hex.pl" to convert log file to a ".hex" file.
