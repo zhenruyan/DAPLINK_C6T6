@@ -10,6 +10,8 @@ The hardware GPIO pins (which can be modifed in file "DAP_config.h"):
     B8: Connected LED
     B12: Target Running LED
 
+Important: this is a Keil MDK5 project, but a compiler version 5 (ARMCC) is needed.
+
 ---------------------------- following is from original author -------------------------
 
 本工程从“技新”开源的DAPLINK修改来。
