@@ -67,6 +67,15 @@ CMSIS-DAP2mod/STM32/STM32F10x_StdPeriph_Driver/inc/stm32f10x.h
 ```
 
 
+openocd链接stm32f103
+
+```
+
+.\bin\openocd -f interface/cmsis-dap.cfg -f target/stm32f1x.cfg 
+
+
+```
+
 
 就酱。
 
