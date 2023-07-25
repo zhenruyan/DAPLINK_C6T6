@@ -52,6 +52,22 @@ CMSIS-DAP2mod/STM32/DAP_config.h
 
 ```
 
+CMSIS-DAP2mod/STM32/STM32F10x_StdPeriph_Driver/inc/stm32f10x.h
+
+115行改晶振 这里强制都是改成8m的了
+
+```
+#if !defined  HSE_VALUE
+ #ifdef STM32F10X_CL   
+  #define HSE_VALUE    ((uint32_t)8000000) /*!< Value of the External oscillator in Hz */
+ #else 
+  #define HSE_VALUE    ((uint32_t)8000000) /*!< Value of the External oscillator in Hz */
+ #endif /* STM32F10X_CL */
+#endif /* HSE_VALUE */
+```
+
+
+
 就酱。
 
 
